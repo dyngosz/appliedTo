@@ -1,6 +1,5 @@
-package com.victus.applied.model;
+package com.victus.applied.entity;
 
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

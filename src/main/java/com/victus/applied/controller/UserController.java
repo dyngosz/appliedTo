@@ -1,6 +1,6 @@
 package com.victus.applied.controller;
 
-import com.victus.applied.model.User;
+import com.victus.applied.entity.User;
 import com.victus.applied.service.SecurityService;
 import com.victus.applied.service.UserService;
 import com.victus.applied.validator.UserValidator;

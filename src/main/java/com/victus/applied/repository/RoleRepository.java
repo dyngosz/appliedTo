@@ -1,6 +1,6 @@
 package com.victus.applied.repository;
 
-import com.victus.applied.model.Role;
+import com.victus.applied.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

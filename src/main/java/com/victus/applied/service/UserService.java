@@ -1,6 +1,6 @@
 package com.victus.applied.service;
 
-import com.victus.applied.model.User;
+import com.victus.applied.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service

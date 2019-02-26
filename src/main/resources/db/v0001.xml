@@ -4,46 +4,69 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.7
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.7.xsd">
 
-    <changeSet id="19-02-2019-23:02" author="wiktordyngosz">
+    <changeSet author="wiktordyngosz" id="1550740413906-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
 
-        <createTable tableName="user">
-            <column name="id" type="bigint">
-                <constraints primaryKey="true" nullable="false"/>
+    <changeSet author="wiktordyngosz" id="1550740413906-2">
+        <createTable tableName="job">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="jobPK"/>
             </column>
-
-            <column name="username" type="varchar(50)">
-                <constraints nullable="false"/>
-            </column>
-
-            <column name="password" type="varchar(32)">
-                <constraints nullable="false"/>
-            </column>
-
-            <column name="roles" type="bigint">
+            <column name="companyName" type="VARCHAR(255)"/>
+            <column name="position" type="VARCHAR(255)"/>
+            <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
 
-
+    <changeSet author="wiktordyngosz" id="1550740413906-3">
         <createTable tableName="role">
-            <column name="id" type="bigint">
-                <constraints primaryKey="true" nullable="false"/>
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="rolePK"/>
             </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
 
-            <column name="name" type="varchar(50)">
+    <changeSet author="wiktordyngosz" id="1550740413906-4">
+        <createTable tableName="user">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true" primaryKeyName="userPK"/>
+            </column>
+            <column name="password" type="VARCHAR(255)"/>
+            <column name="username" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="wiktordyngosz" id="1550740413906-5">
+        <createTable tableName="user_role">
+            <column name="user_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
-
-            <column name="users" type="varchar(30)">
+            <column name="role_id" type="BIGINT">
                 <constraints nullable="false"/>
             </column>
         </createTable>
+    </changeSet>
 
-        <addForeignKeyConstraint constraintName="fk_user_roles"
-                                 baseTableName="user"
-                                 baseColumnNames="roles"
-                                 referencedTableName="role"
-                                 referencedColumnNames="id"/>
-
+    <changeSet author="wiktordyngosz" id="1550740413906-6">
+        <addPrimaryKey columnNames="user_id, role_id" tableName="user_role"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz" id="1550740413906-7">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="job"
+                                 constraintName="FK_8jso54c0vdb68t51s7d136am9" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz" id="1550740413906-8">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role"
+                                 constraintName="FK_apcc8lxk2xnug8377fatvbn04" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz" id="1550740413906-9">
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role"
+                                 constraintName="FK_it77eq964jhfqtu54081ebtio" deferrable="false"
+                                 initiallyDeferred="false" referencedColumnNames="id" referencedTableName="role"/>
     </changeSet>
 </databaseChangeLog>

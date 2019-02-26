@@ -1,4 +1,4 @@
-package com.victus.applied.model;
+package com.victus.applied.entity;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -10,35 +10,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "job")
 @Getter
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode
-public class User {
+public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    private String username;
+    private String position;
 
     @NotNull
-    private String password;
+    private String companyName;
 
-    @Transient
-    private String passwordConfirm;
-
-    @ManyToMany
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
-    private Set<Role> roles;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

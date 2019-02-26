@@ -1,0 +1,27 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet author="wiktordyngosz (generated)" id="1550757190399-1">
+        <dropForeignKeyConstraint baseTableName="job" constraintName="FK_8jso54c0vdb68t51s7d136am9"/>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="job" constraintName="FK_8jso54c0vdb68t51s7d136am9" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz (generated)" id="1550757190399-2">
+        <dropForeignKeyConstraint baseTableName="user_role" constraintName="FK_apcc8lxk2xnug8377fatvbn04"/>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role" constraintName="FK_apcc8lxk2xnug8377fatvbn04" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz (generated)" id="1550757190399-3">
+        <dropForeignKeyConstraint baseTableName="user_role" constraintName="FK_it77eq964jhfqtu54081ebtio"/>
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role" constraintName="FK_it77eq964jhfqtu54081ebtio" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz (generated)" id="1551117567180-1">
+        <dropForeignKeyConstraint baseTableName="job" constraintName="FK_8jso54c0vdb68t51s7d136am9"/>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="job" constraintName="FK_8jso54c0vdb68t51s7d136am9" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz (generated)" id="1551117567180-2">
+        <dropForeignKeyConstraint baseTableName="user_role" constraintName="FK_apcc8lxk2xnug8377fatvbn04"/>
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="user_role" constraintName="FK_apcc8lxk2xnug8377fatvbn04" referencedColumnNames="id" referencedTableName="user"/>
+    </changeSet>
+    <changeSet author="wiktordyngosz (generated)" id="1551117567180-3">
+        <dropForeignKeyConstraint baseTableName="user_role" constraintName="FK_it77eq964jhfqtu54081ebtio"/>
+        <addForeignKeyConstraint baseColumnNames="role_id" baseTableName="user_role" constraintName="FK_it77eq964jhfqtu54081ebtio" referencedColumnNames="id" referencedTableName="role"/>
+    </changeSet>
+</databaseChangeLog>

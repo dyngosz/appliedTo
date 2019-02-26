@@ -1,7 +1,7 @@
 package com.victus.applied.service;
 
-import com.victus.applied.model.Role;
-import com.victus.applied.model.User;
+import com.victus.applied.entity.Role;
+import com.victus.applied.entity.User;
 import com.victus.applied.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;

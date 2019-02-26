@@ -1,6 +1,6 @@
 package com.victus.applied.validator;
 
-import com.victus.applied.model.User;
+import com.victus.applied.entity.User;
 import com.victus.applied.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
