@@ -1,11 +1,7 @@
 package com.victus.applied.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,12 +14,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "job")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
-@EqualsAndHashCode
 public class Job {
 
     @Id
@@ -36,7 +28,7 @@ public class Job {
     @NotNull
     private String companyName;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", nullable = false)
+//    private User user;
 }
